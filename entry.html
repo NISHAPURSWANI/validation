@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<head>
+    You have entered!
+</head>
+<body>
+    Have a check , what you have submitted!<br>
+    <script>
+           var url_string = window.location.href//"file:///C:/xampp/htdocs/jus.html?user=Nisha&mobile=7789630125&email=nisha%40gmail.com&country=india&city=uljahsd&state=maharashtra&submit=submit"; //window.location.href
+            var url = new URL(url_string);
+            var user = url.searchParams.get("user");
+            var mobile =url.searchParams.get("mobile");
+            var mobilen=toString(mobile);
+            console.log(mobilen);
+            var email = url.searchParams.get("email");
+            var country = url.searchParams.get("country");
+            var state = url.searchParams.get("state");
+            var city = url.searchParams.get("city");
+            var twitter = url.searchParams.get("twitter");
+            var fb = url.searchParams.get("facebook");
+            var git =url.searchParams.get("github");
+
+
+
+
+            document.write("user name:"+user);
+            document.write("<br />");
+
+            document.write("contact:"+mobile);
+            document.write("<br />");
+
+            document.write("email:"+email);
+            document.write("<br />");
+
+            document.write("contry"+country);
+            document.write("<br />");
+
+            document.write("state:"+state);
+            document.write("<br />");
+
+            document.write("city:"+city);
+            document.write("<br />");
+           
+            document.write("twitter:"+twitter);
+            document.write("<br />");
+
+            document.write("fb:"+fb);
+            document.write("<br />");
+
+            document.write("git:"+git);
+            document.write("<br />");
+
+
+
+
+
+
+     </script>
+</body>
