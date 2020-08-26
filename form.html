@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+
+
+</head>
+<body>
+<h1 > Js validation Form</h1>
+
+	<div  style="justify-content:center;"><br>
+		
+			
+			<form action="entry.html" onsubmit="return validation()" method="GET">
+				
+				<div class="form-group">
+					<label> Username: </label>
+					<input type="text" name="user" id="user" autocomplete="off">
+					<span id="username"> </span>
+				</div>
+               
+				
+				<div >
+					<label > Mobile Number: </label>
+					<input type="number" name="mobile"  id="mobile" autocomplete="off">
+					<span id="mobileno" > </span>
+				</div>
+
+				<div class="form-group">
+					<label > Email: </label>
+					<input type="email" name="email"  id="email" autocomplete="off">
+					<span id="emailids" > </span>
+                </div>
+                <div >
+					<label > country: </label>
+					<input type="text" name="country"  id="country" autocomplete="off">
+					<span id="cno" > </span>
+				</div>
+                
+                <div >
+					<label > State: </label>
+					<input type="text" name="state"  id="state" autocomplete="off">
+					<span id="sno" > </span>
+				</div>
+				
+				<div >
+					<label > city: </label>
+					<input type="text" name="city"  id="city" autocomplete="off">
+					<span id="cino" > </span>
+				</div>
+				
+                <div>
+                    <label>Twitter URL:</label> 
+                    <input type="text" placeholder="Twitter URL" id="twitter" name="twitter"><br><!--tweet-->
+                    <span id="twm" ></span>
+
+                </div>
+                <div>
+               <label>Facebook URL:</label> 
+                <input type="text" placeholder="facebook Url" id="fb" name="facebook"><br>
+                <span id="fbm"></span>
+                </div>
+                <div>
+                    <label>Github URL:</label> 
+                    <input type="text" placeholder="Github Url" id="git" name="github"><br><!--git-->
+                     <span id="gitm" ></span>
+
+                </div>
+        
+
+				<input type="submit" name="submit" value="submit" 	autocomplete="off" onclick="data()">
+
+
+			</form><br><br>
+
+
+		</div>
+	</div>
+
+
+
+	<script>
+		
+
+		function validation(){
+
+			var user = document.getElementById('user').value;
+
+			var mobileNumber = document.getElementById('mobile').value;
+			var emails = document.getElementById('email').value;
+            var country = document.getElementById('country').value;
+            var state = document.getElementById('state').value;
+            var city = document.getElementById('city').value;
+            var TWurl = /^(http|https)\:\/\/(www.|)twitter.com\/.*/i;
+            var twitter=document.getElementById('twitter').value;
+            var FBurl = /^(http|https)\:\/\/www.facebook.com\/.*/i;
+            var fb=document.getElementById('fb').value;
+            var Giturl = /^(http|https)\:\/\/www.github.com\/.*/i;
+            var git=document.getElementById('git').value;
+
+
+
+
+
+
+
+
+
+
+
+
+
+			if(user == ""){
+				document.getElementById('username').innerHTML =" ** Please fill the username field";
+				return false;
+			}
+			if((user.length <= 2) || (user.length > 20)) {
+				document.getElementById('username').innerHTML =" ** Username lenght must be between 2 and 20";
+				return false;	
+			}
+			if(!isNaN(user)){
+				document.getElementById('username').innerHTML =" ** only characters are allowed";
+				return false;
+			}
+
+
+
+			if(mobileNumber == ""){
+				document.getElementById('mobileno').innerHTML =" ** Please fill the mobile NUmber field";
+				return false;
+			}
+			if(isNaN(mobileNumber)){
+				document.getElementById('mobileno').innerHTML =" ** user must write digits only not characters";
+				return false;
+			}
+			if(mobileNumber.length!=10){
+				document.getElementById('mobileno').innerHTML =" ** Mobile Number must be 10 digits only";
+				return false;
+			}
+
+
+
+			if(emails == ""){
+				document.getElementById('emailids').innerHTML =" ** Please fill the email idx` field";
+				return false;
+			}
+			if(emails.indexOf('@') <= 0 ){
+				document.getElementById('emailids').innerHTML =" ** @ Invalid Position";
+				return false;
+			}
+
+			if((emails.charAt(emails.length-4)!='.') && (emails.charAt(emails.length-3)!='.')){
+				document.getElementById('emailids').innerHTML =" ** . Invalid Position";
+				return false;
+			}
+            if(country == ""){
+				document.getElementById('cno').innerHTML =" ** Please fill the country field";
+				return false;
+			}
+			if((country.length <= 2) || (country.length > 20)) {
+				document.getElementById('cno').innerHTML =" ** country name length must be between 2 and 20";
+				return false;	
+			}
+			if(!isNaN(country)){
+				document.getElementById('cno').innerHTML =" ** only characters are allowed";
+				return false;
+			}
+
+            if(state == ""){
+				document.getElementById('sno').innerHTML =" ** Please fill the state field";
+				return false;
+			}
+			if((state.length <= 2) || (state.length > 20)) {
+				document.getElementById('sno').innerHTML =" ** city name must be between 2 and 20";
+				return false;	
+			}
+			if(!isNaN(state)){
+				document.getElementById('sno').innerHTML =" ** only characters are allowed";
+				return false;
+			}
+
+            if(city == ""){
+				document.getElementById('cino').innerHTML =" ** Please fill the city field";
+				return false;
+			}
+			if((city.length <= 2) || (city.length > 20)) {
+				document.getElementById('cino').innerHTML =" ** city name must be between 2 and 20";
+				return false;	
+			}
+			if(!isNaN(city)){
+				document.getElementById('cino').innerHTML =" ** only characters are allowed";
+				return false;
+			}
+             if(twitter == ""){
+				document.getElementById('twm').innerHTML =" ** Please fill the  field";
+				return false;
+			}
+            if(!twitter.match(TWurl)){
+            document.getElementById("twm").innerHTML="Please enter only valid link ";
+            return false;
+            };
+
+            if(fb == ""){
+				document.getElementById('fbm').innerHTML =" ** Please fill the  field";
+				return false;
+			}
+            if(!fb.match(FBurl)){
+                 document.getElementById("fbm").innerHTML="Please enter only valid link ";
+                 return false;
+            };
+            if(git == ""){
+				document.getElementById('fbm').innerHTML =" ** Please fill the  field";
+				return false;
+			}
+           if(!git.match(Giturl)){
+                document.getElementById("gitm").innerHTML="Please enter only valid link ";
+                return false;
+            };
+           
+           
+
+
+
+		}
+        function data(){
+            var myname=document.getElementById('user');
+        }
+
+	</script>
+
+</body>
+</html>
